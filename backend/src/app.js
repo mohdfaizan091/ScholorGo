@@ -10,4 +10,7 @@ app.get("/health", (req, res) => {
   res.json({ status: "ok" });
 });
 
+const inquiryRoutes = require("./routes/inquiry.routes");
+app.use("/api/inquiry", inquiryRoutes);
+
 module.exports = app;
