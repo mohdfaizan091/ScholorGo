@@ -4,29 +4,32 @@ function Home() {
   return (
     <div className="section-padding bg-gradient-to-br from-blue-50 to-gray-50">
       <div className="container-pro text-center">
+        {/* ✅ Updated Main Heading */}
         <h1 className="trust-heading brand-gradient-text">
-          Scholarship Guidance Made Simple
+          Helping Students Find the Scholarships They Truly Deserve
         </h1>
 
+        {/* ✅ Updated Sub-Heading */}
         <p className="trust-subheading max-w-2xl mx-auto">
-          ScholarGO supports students in navigating scholarship opportunities
-          with clarity and structured assistance.
+          ScholarGo helps students discover relevant scholarship opportunities 
+          and provides guidance so they don't miss out due to lack of information.
         </p>
 
+        {/* ✅ Updated CTA Buttons - Exact as specified */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
           <Link to="/contact">
             <button className="pro-btn-primary">
-              Get Started
+              Reach Out to Us
             </button>
           </Link>
           <Link to="/how-it-works">
-            <button className="pro-btn-secondary">
-              Learn More
+            <button className="pro-btn-cta">
+              Get Scholarship Guidance
             </button>
           </Link>
         </div>
 
-        {/* Trust Indicators */}
+        {/* Trust Indicators - No changes needed here */}
         <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6">
           <div className="pro-card text-center">
             <div className="text-3xl font-bold brand-gradient-text">500+</div>

@@ -3,11 +3,19 @@ function About() {
     <div className="section-padding bg-white">
       <div className="container-pro">
         <div className="pro-card pro-card-hover">
-          <h2 className="trust-heading">About ScholarGO</h2>
+          {/* ✅ Updated heading - brand name consistent */}
+          <h2 className="trust-heading">About ScholarGo</h2>
           
+          {/* ✅ Updated description - exact wording from instruction */}
+          <p className="text-gray-700 leading-relaxed mb-6">
+            ScholarGo is a scholarship assistance and guidance platform built to help students navigate 
+            scholarship opportunities with clarity and confidence.
+          </p>
+          
+          {/* ✅ Added second paragraph - exact wording from instruction */}
           <p className="text-gray-700 leading-relaxed mb-8">
-            ScholarGO is built to simplify scholarship applications by providing
-            structured guidance and operational clarity to students.
+            We aim to bridge the gap between deserving students and the opportunities available to 
+            them through proper guidance and structured support.
           </p>
           
           <div className="pro-list">

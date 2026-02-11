@@ -7,34 +7,26 @@ function WhatWeDo() {
           
           <div className="pro-list mt-6">
             <div className="pro-list-item">
-              <div className="pro-list-bullet">1</div>
+              <div className="pro-list-bullet">✓</div>
               <div>
-                <h3 className="font-semibold text-gray-900">Scholarship Opportunity Guidance</h3>
-                <p className="text-gray-600">Personalized matching with suitable scholarships</p>
+                <h3 className="font-semibold text-gray-900">Scholarship Eligibility</h3>
+                <p className="text-gray-600">Help students identify scholarships they are eligible for</p>
               </div>
             </div>
             
             <div className="pro-list-item">
-              <div className="pro-list-bullet">2</div>
+              <div className="pro-list-bullet">✓</div>
               <div>
-                <h3 className="font-semibold text-gray-900">Application Process Assistance</h3>
-                <p className="text-gray-600">Step-by-step support through the entire application</p>
+                <h3 className="font-semibold text-gray-900">Application Guidance</h3>
+                <p className="text-gray-600">Guide students on when and how to apply</p>
               </div>
             </div>
             
             <div className="pro-list-item">
-              <div className="pro-list-bullet">3</div>
+              <div className="pro-list-bullet">✓</div>
               <div>
-                <h3 className="font-semibold text-gray-900">Documentation Support</h3>
-                <p className="text-gray-600">Help with essays, recommendations, and forms</p>
-              </div>
-            </div>
-            
-            <div className="pro-list-item">
-              <div className="pro-list-bullet">4</div>
-              <div>
-                <h3 className="font-semibold text-gray-900">End-to-End Structured Workflow</h3>
-                <p className="text-gray-600">Complete process management from start to finish</p>
+                <h3 className="font-semibold text-gray-900">Opportunity Alerts</h3>
+                <p className="text-gray-600">Ensure students stay informed about upcoming opportunities</p>
               </div>
             </div>
           </div>

@@ -13,8 +13,10 @@ app.get("/health", (req, res) => {
 const inquiryRoutes = require("./routes/inquiry.routes");
 app.use("/api/inquiry", inquiryRoutes);
 
-const adminRoutes = require("./routes/admin.routes");
-app.use("/api/admin", adminRoutes);
+
+const secureAdminRoutes = require("./routes/secureAdmin.routes");
+app.use("/api/secure-admin", secureAdminRoutes);
+
 
 
 module.exports = app;

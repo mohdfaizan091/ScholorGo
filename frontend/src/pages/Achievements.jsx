@@ -5,23 +5,32 @@ function Achievements() {
         <div className="pro-card pro-card-hover">
           <h2 className="trust-heading">Our Achievements</h2>
           
-          <p className="text-gray-700 mb-8">
-            ScholarGO has successfully guided multiple students
-            through structured scholarship application processes.
-          </p>
+          {/* Round 1 – 2026 Successfully Closed */}
+          <span className="inline-block bg-blue-100 text-blue-800 px-4 py-2 rounded-full font-semibold text-sm mb-6">
+            🎉 Round 1 – 2026 Successfully Closed
+          </span>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-blue-50 p-6 rounded-xl border border-blue-100">
-              <div className="text-2xl font-bold brand-gradient-text mb-2">$2M+</div>
-              <p className="text-gray-600">In scholarship funds secured for students</p>
+          {/* Key achievements - simple bullet points */}
+          <div className="space-y-4 mt-4">
+            <div className="flex items-start space-x-3">
+              <span className="text-green-600 text-xl">✓</span>
+              <p className="text-gray-700 text-lg">Students guided toward successful scholarship outcomes</p>
             </div>
             
-            <div className="bg-green-50 p-6 rounded-xl border border-green-100">
-              <div className="text-2xl font-bold text-green-700 mb-2">98%</div>
-              <p className="text-gray-600">Student satisfaction rate</p>
+            <div className="flex items-start space-x-3">
+              <span className="text-green-600 text-xl">✓</span>
+              <p className="text-gray-700 text-lg">Growing ScholarGo scholar community</p>
             </div>
           </div>
           
+          {/* Optional mission line */}
+          <div className="mt-8 p-5 bg-amber-50 border border-amber-100 rounded-lg">
+            <p className="text-amber-800 italic">
+              "Every round strengthens our mission to simplify access to education."
+            </p>
+          </div>
+          
+          {/* Award badge */}
           <div className="mt-8">
             <span className="achievement-badge animate-float">
               🏆 Award Winning Service

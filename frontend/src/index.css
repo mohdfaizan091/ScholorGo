@@ -3,60 +3,91 @@
 @tailwind utilities;
 
 @layer components {
+  /* ✅ Navy & Teal Gradient - Primary Brand Colors */
   .brand-gradient-text {
-    @apply bg-gradient-to-r from-blue-700 to-teal-600 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-[#0A2342] to-[#1E5F5C] bg-clip-text text-transparent;
+    /* Navy → Teal */
   }
   
   .brand-gradient-bg {
-    @apply bg-gradient-to-r from-blue-600 to-teal-500;
+    @apply bg-gradient-to-r from-[#0A2342] to-[#1E5F5C];
+    /* Navy → Teal */
   }
   
+  /* ✅ Gold Accent - CTA Buttons Only */
+  .cta-gold {
+    @apply bg-gradient-to-r from-[#FFB347] to-[#FFA07A] text-white;
+    /* Gold/Orange gradient - CTA only */
+  }
+  
+  .cta-gold-hover {
+    @apply hover:from-[#FFA07A] hover:to-[#FFB347] hover:shadow-lg hover:shadow-[#FFB347]/20;
+  }
+  
+  /* Cards - Clean White with Navy/Teal accents */
   .pro-card {
-    @apply bg-white rounded-xl shadow-lg border border-gray-100 p-6;
+    @apply bg-white rounded-xl shadow-md border border-gray-100 p-6;
   }
   
   .pro-card-hover {
-    @apply hover:shadow-xl hover:border-blue-200 transition-all duration-300;
+    @apply hover:shadow-lg hover:border-[#1E5F5C]/30 transition-all duration-300;
+    /* Teal border on hover */
   }
   
+  /* ✅ Primary Button - Navy/Teal Gradient (Default) */
   .pro-btn-primary {
     @apply brand-gradient-bg text-white px-6 py-3 rounded-lg font-semibold 
            hover:shadow-lg hover:scale-105 transition-all duration-300 
            active:scale-95;
   }
   
+  /* ✅ Secondary Button - Navy Border with Teal Hover */
   .pro-btn-secondary {
-    @apply border-2 border-blue-600 text-blue-600 px-6 py-3 rounded-lg 
-           font-semibold hover:bg-blue-50 transition-all duration-300;
+    @apply border-2 border-[#0A2342] text-[#0A2342] px-6 py-3 rounded-lg 
+           font-semibold hover:bg-[#1E5F5C] hover:text-white hover:border-[#1E5F5C] 
+           transition-all duration-300;
   }
   
+  /* ✅ CTA Button - Gold Accent (Special Actions) */
+  .pro-btn-cta {
+    @apply cta-gold text-white px-6 py-3 rounded-lg font-semibold 
+           cta-gold-hover hover:scale-105 transition-all duration-300 
+           active:scale-95 shadow-md;
+  }
+  
+  /* Form Inputs - Navy Focus Ring */
   .pro-input {
     @apply w-full border border-gray-300 rounded-lg px-4 py-3 
-           focus:outline-none focus:ring-2 focus:ring-blue-500 
+           focus:outline-none focus:ring-2 focus:ring-[#0A2342] 
            focus:border-transparent transition-all;
   }
   
+  /* Section Padding - Consistent */
   .section-padding {
-    @apply py-16 md:py-24;
+    @apply py-16 md:py-20;
   }
   
   .container-pro {
     @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
   }
   
+  /* Headings - Navy */
   .trust-heading {
-    @apply text-3xl md:text-4xl font-bold text-gray-900 mb-4;
+    @apply text-3xl md:text-4xl font-bold text-[#0A2342] mb-4;
   }
   
   .trust-subheading {
-    @apply text-lg md:text-xl text-gray-600 mb-8;
+    @apply text-lg md:text-xl text-[#4A5568] mb-8;
+    /* Soft gray - easy reading */
   }
   
+  /* Achievement Badge - Teal */
   .achievement-badge {
     @apply inline-flex items-center justify-center px-4 py-2 
-           rounded-full bg-blue-50 text-blue-700 text-sm font-medium;
+           rounded-full bg-[#1E5F5C]/10 text-[#1E5F5C] text-sm font-medium;
   }
   
+  /* Lists - Navy bullets */
   .pro-list {
     @apply space-y-3;
   }
@@ -66,23 +97,22 @@
   }
   
   .pro-list-bullet {
-    @apply flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 
-           flex items-center justify-center text-blue-600 text-sm mt-0.5;
+    @apply flex-shrink-0 w-6 h-6 rounded-full bg-[#0A2342]/10 
+           flex items-center justify-center text-[#0A2342] text-sm mt-0.5;
   }
   
+  /* Success Message - Teal theme */
   .success-message {
-    @apply bg-green-50 border border-green-200 text-green-700 
+    @apply bg-[#1E5F5C]/10 border border-[#1E5F5C]/30 text-[#1E5F5C] 
            px-4 py-3 rounded-lg text-sm;
   }
   
-  .loading-dots {
-    @apply flex space-x-1 justify-center;
-  }
-  
+  /* Loading Dots - Navy */
   .loading-dots div {
-    @apply w-2 h-2 bg-blue-600 rounded-full animate-bounce;
+    @apply w-2 h-2 bg-[#0A2342] rounded-full animate-bounce;
   }
   
+  /* Trust Indicator - Gold accent */
   .trust-indicator {
     @apply relative overflow-hidden;
   }
@@ -90,12 +120,34 @@
   .trust-indicator::before {
     content: '🔒 Trusted & Secure';
     @apply absolute -top-8 left-1/2 transform -translate-x-1/2 
-           bg-green-500 text-white text-xs px-3 py-1 rounded-full 
+           bg-[#FFB347] text-white text-xs px-3 py-1 rounded-full 
            whitespace-nowrap opacity-0 transition-opacity duration-300;
+    /* Gold background */
   }
   
   .trust-indicator:hover::before {
     @apply opacity-100 top-2;
+  }
+  
+  /* ✅ Footer Specific - Clean Dark Navy */
+  .footer-bg {
+    @apply bg-[#0A2342];
+    /* Solid Navy - no gradient */
+  }
+  
+  .footer-text {
+    @apply text-gray-300;
+  }
+  
+  .footer-link {
+    @apply hover:text-[#FFB347] transition-colors;
+    /* Gold on hover */
+  }
+  
+  /* ✅ Social Icons - Navy with Gold hover */
+  .social-icon {
+    @apply w-8 h-8 bg-[#0A2342]/80 rounded-full flex items-center justify-center 
+           hover:bg-[#FFB347] transition-colors duration-300;
   }
 }
 

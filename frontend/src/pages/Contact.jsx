@@ -8,7 +8,7 @@ function Contact() {
     email: "",
     city: "",
     state: "",
-    message: "",
+    message: "", // Keeping optional message field
   });
 
   const [loading, setLoading] = useState(false);
@@ -25,7 +25,8 @@ function Contact() {
 
     try {
       await submitInquiry(form);
-      setSuccess("Inquiry submitted successfully. We will contact you soon.");
+      // ✅ Updated confirmation message - exact wording
+      setSuccess("Thank you for reaching out to ScholarGo. We will contact you shortly.");
       setForm({
         fullName: "",
         phone: "",
@@ -50,40 +51,41 @@ function Contact() {
             <p className="trust-subheading">Get in touch for personalized scholarship guidance</p>
 
             <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Full Name *
-                  </label>
-                  <input
-                    name="fullName"
-                    placeholder="John Doe"
-                    value={form.fullName}
-                    onChange={handleChange}
-                    required
-                    className="pro-input"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Phone *
-                  </label>
-                  <input
-                    name="phone"
-                    type="tel"
-                    placeholder="+91 9876543210"
-                    value={form.phone}
-                    onChange={handleChange}
-                    required
-                    className="pro-input"
-                  />
-                </div>
-              </div>
-
+              {/* Full Name */}
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Email *
+                  Full Name *
+                </label>
+                <input
+                  name="fullName"
+                  placeholder="Enter your full name"
+                  value={form.fullName}
+                  onChange={handleChange}
+                  required
+                  className="pro-input"
+                />
+              </div>
+
+              {/* Phone Number */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Phone Number *
+                </label>
+                <input
+                  name="phone"
+                  type="tel"
+                  placeholder="+91 9876XXXXXX"
+                  value={form.phone}
+                  onChange={handleChange}
+                  required
+                  className="pro-input"
+                />
+              </div>
+
+              {/* Email ID */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Email ID *
                 </label>
                 <input
                   name="email"
@@ -96,6 +98,7 @@ function Contact() {
                 />
               </div>
 
+              {/* Address: City & State - Side by side */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -103,7 +106,7 @@ function Contact() {
                   </label>
                   <input
                     name="city"
-                    placeholder="New Delhi"
+                    placeholder="e.g. New Delhi"
                     value={form.city}
                     onChange={handleChange}
                     required
@@ -117,7 +120,7 @@ function Contact() {
                   </label>
                   <input
                     name="state"
-                    placeholder="Delhi"
+                    placeholder="e.g. Delhi"
                     value={form.state}
                     onChange={handleChange}
                     required
@@ -126,6 +129,7 @@ function Contact() {
                 </div>
               </div>
 
+              {/* Message - Optional, keeping for better user experience */}
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Message (optional)
@@ -140,7 +144,8 @@ function Contact() {
                 />
               </div>
 
-              <button
+              {/* ✅ Button Text: Submit Inquiry */}
+              <button 
                 type="submit"
                 disabled={loading}
                 className="pro-btn-primary w-full"
@@ -156,6 +161,7 @@ function Contact() {
                 )}
               </button>
 
+              {/* ✅ Updated confirmation message - exact wording */}
               {success && (
                 <div className="success-message">
                   ✅ {success}
