@@ -2,3 +2,108 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .brand-gradient-text {
+    @apply bg-gradient-to-r from-blue-700 to-teal-600 bg-clip-text text-transparent;
+  }
+  
+  .brand-gradient-bg {
+    @apply bg-gradient-to-r from-blue-600 to-teal-500;
+  }
+  
+  .pro-card {
+    @apply bg-white rounded-xl shadow-lg border border-gray-100 p-6;
+  }
+  
+  .pro-card-hover {
+    @apply hover:shadow-xl hover:border-blue-200 transition-all duration-300;
+  }
+  
+  .pro-btn-primary {
+    @apply brand-gradient-bg text-white px-6 py-3 rounded-lg font-semibold 
+           hover:shadow-lg hover:scale-105 transition-all duration-300 
+           active:scale-95;
+  }
+  
+  .pro-btn-secondary {
+    @apply border-2 border-blue-600 text-blue-600 px-6 py-3 rounded-lg 
+           font-semibold hover:bg-blue-50 transition-all duration-300;
+  }
+  
+  .pro-input {
+    @apply w-full border border-gray-300 rounded-lg px-4 py-3 
+           focus:outline-none focus:ring-2 focus:ring-blue-500 
+           focus:border-transparent transition-all;
+  }
+  
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+  
+  .container-pro {
+    @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .trust-heading {
+    @apply text-3xl md:text-4xl font-bold text-gray-900 mb-4;
+  }
+  
+  .trust-subheading {
+    @apply text-lg md:text-xl text-gray-600 mb-8;
+  }
+  
+  .achievement-badge {
+    @apply inline-flex items-center justify-center px-4 py-2 
+           rounded-full bg-blue-50 text-blue-700 text-sm font-medium;
+  }
+  
+  .pro-list {
+    @apply space-y-3;
+  }
+  
+  .pro-list-item {
+    @apply flex items-start space-x-3;
+  }
+  
+  .pro-list-bullet {
+    @apply flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 
+           flex items-center justify-center text-blue-600 text-sm mt-0.5;
+  }
+  
+  .success-message {
+    @apply bg-green-50 border border-green-200 text-green-700 
+           px-4 py-3 rounded-lg text-sm;
+  }
+  
+  .loading-dots {
+    @apply flex space-x-1 justify-center;
+  }
+  
+  .loading-dots div {
+    @apply w-2 h-2 bg-blue-600 rounded-full animate-bounce;
+  }
+  
+  .trust-indicator {
+    @apply relative overflow-hidden;
+  }
+  
+  .trust-indicator::before {
+    content: '🔒 Trusted & Secure';
+    @apply absolute -top-8 left-1/2 transform -translate-x-1/2 
+           bg-green-500 text-white text-xs px-3 py-1 rounded-full 
+           whitespace-nowrap opacity-0 transition-opacity duration-300;
+  }
+  
+  .trust-indicator:hover::before {
+    @apply opacity-100 top-2;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}

@@ -23,7 +23,7 @@ function Admin() {
       link.remove();
 
     } catch (error) {
-      alert("Unauthorized or error occurred");
+      alert("Unauthorized or error occurred", error);
     }
   }
 

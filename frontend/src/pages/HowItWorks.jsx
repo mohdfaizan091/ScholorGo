@@ -1,13 +1,37 @@
 function HowItWorks() {
   return (
-    <div className="max-w-6xl mx-auto px-6 py-16">
-      <h2 className="text-3xl font-semibold mb-6">How It Works</h2>
-
-      <ol className="list-decimal pl-6 text-gray-700 space-y-3">
-        <li>Submit your inquiry</li>
-        <li>Our team reviews your details</li>
-        <li>We guide you through the scholarship process</li>
-      </ol>
+    <div className="section-padding bg-white">
+      <div className="container-pro">
+        <div className="pro-card pro-card-hover">
+          <h2 className="trust-heading">How It Works</h2>
+          
+          <div className="space-y-8 mt-8">
+            <div className="flex items-start space-x-4">
+              <div className="achievement-badge">Step 1</div>
+              <div>
+                <h3 className="font-semibold text-gray-900">Submit Your Inquiry</h3>
+                <p className="text-gray-600 mt-1">Complete our simple contact form with your details</p>
+              </div>
+            </div>
+            
+            <div className="flex items-start space-x-4">
+              <div className="achievement-badge">Step 2</div>
+              <div>
+                <h3 className="font-semibold text-gray-900">Team Review</h3>
+                <p className="text-gray-600 mt-1">Our experts analyze your profile and requirements</p>
+              </div>
+            </div>
+            
+            <div className="flex items-start space-x-4">
+              <div className="achievement-badge">Step 3</div>
+              <div>
+                <h3 className="font-semibold text-gray-900">Guided Process</h3>
+                <p className="text-gray-600 mt-1">We guide you through the complete scholarship process</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

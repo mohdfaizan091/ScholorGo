@@ -42,79 +42,133 @@ function Contact() {
   }
 
   return (
-    <div className="max-w-3xl mx-auto px-6 py-16">
-      <h2 className="text-3xl font-semibold mb-6">Contact Us</h2>
+    <div className="section-padding bg-white">
+      <div className="container-pro">
+        <div className="max-w-2xl mx-auto">
+          <div className="pro-card pro-card-hover">
+            <h2 className="trust-heading">Contact Us</h2>
+            <p className="trust-subheading">Get in touch for personalized scholarship guidance</p>
 
-      <form
-        onSubmit={handleSubmit}
-        className="space-y-4 bg-white p-8 rounded-xl shadow-md"
-      >
-        <input
-          name="fullName"
-          placeholder="Full Name"
-          value={form.fullName}
-          onChange={handleChange}
-          required
-          className="w-full border p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-        />
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Full Name *
+                  </label>
+                  <input
+                    name="fullName"
+                    placeholder="John Doe"
+                    value={form.fullName}
+                    onChange={handleChange}
+                    required
+                    className="pro-input"
+                  />
+                </div>
 
-        <input
-          name="phone"
-          type="tel"
-          placeholder="Phone"
-          value={form.phone}
-          onChange={handleChange}
-          required
-          className="w-full border p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-        />
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Phone *
+                  </label>
+                  <input
+                    name="phone"
+                    type="tel"
+                    placeholder="+91 9876543210"
+                    value={form.phone}
+                    onChange={handleChange}
+                    required
+                    className="pro-input"
+                  />
+                </div>
+              </div>
 
-        <input
-          name="email"
-          type="email"
-          placeholder="Email"
-          value={form.email}
-          onChange={handleChange}
-          required
-          className="w-full border p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-        />
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Email *
+                </label>
+                <input
+                  name="email"
+                  type="email"
+                  placeholder="john@example.com"
+                  value={form.email}
+                  onChange={handleChange}
+                  required
+                  className="pro-input"
+                />
+              </div>
 
-        <input
-          name="city"
-          placeholder="City"
-          value={form.city}
-          onChange={handleChange}
-          required
-          className="w-full border p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-        />
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    City *
+                  </label>
+                  <input
+                    name="city"
+                    placeholder="New Delhi"
+                    value={form.city}
+                    onChange={handleChange}
+                    required
+                    className="pro-input"
+                  />
+                </div>
 
-        <input
-          name="state"
-          placeholder="State"
-          value={form.state}
-          onChange={handleChange}
-          required
-          className="w-full border p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-        />
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    State *
+                  </label>
+                  <input
+                    name="state"
+                    placeholder="Delhi"
+                    value={form.state}
+                    onChange={handleChange}
+                    required
+                    className="pro-input"
+                  />
+                </div>
+              </div>
 
-        <textarea
-          name="message"
-          placeholder="Message (optional)"
-          value={form.message}
-          onChange={handleChange}
-          className="w-full border p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-        />
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Message (optional)
+                </label>
+                <textarea
+                  name="message"
+                  placeholder="Tell us about your educational goals..."
+                  value={form.message}
+                  onChange={handleChange}
+                  rows="4"
+                  className="pro-input"
+                />
+              </div>
 
-        <button
-          disabled={loading}
-          className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition"
-        >
-          {loading ? "Submitting..." : "Submit"}
-        </button>
+              <button
+                type="submit"
+                disabled={loading}
+                className="pro-btn-primary w-full"
+              >
+                {loading ? (
+                  <div className="loading-dots">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                  </div>
+                ) : (
+                  "Submit Inquiry"
+                )}
+              </button>
 
-        {success && (
-          <p className="text-green-600 text-sm mt-2">{success}</p>
-        )}
-      </form>
+              {success && (
+                <div className="success-message">
+                  ✅ {success}
+                </div>
+              )}
+
+              <p className="text-xs text-gray-500 text-center">
+                By submitting, you agree to our Privacy Policy. Your information is secure.
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
