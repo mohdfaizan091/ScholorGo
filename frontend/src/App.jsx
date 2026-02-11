@@ -10,9 +10,11 @@ import Achievements from "./pages/Achievements";
 import Contact from "./pages/Contact";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
+import './index.css'
 
 function App() {
   return (
+    
     <BrowserRouter>
       <Navbar />
       <Routes>
