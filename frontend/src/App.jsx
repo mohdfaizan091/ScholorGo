@@ -10,6 +10,7 @@ import Achievements from "./pages/Achievements";
 import Contact from "./pages/Contact";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
+import Admin from "./pages/Admin";
 import './index.css'
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/privacy-policy" element={<Privacy />} />
         <Route path="/terms" element={<Terms />} />
+        <Route path="/admin" element={<Admin />} />
       </Routes>
       <Footer />
     </BrowserRouter>

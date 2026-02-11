@@ -4,6 +4,6 @@ const api = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL,
 });
 
-export function submitInquiry(data) {
+export const submitInquiry = (data) => {
   return api.post("/api/inquiry", data);
-}
+};

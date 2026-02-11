@@ -25,7 +25,7 @@ function Contact() {
 
     try {
       await submitInquiry(form);
-      setSuccess("Inquiry submitted successfully. We will contact you.");
+      setSuccess("Inquiry submitted successfully. We will contact you soon.");
       setForm({
         fullName: "",
         phone: "",
@@ -35,27 +35,86 @@ function Contact() {
         message: "",
       });
     } catch {
-      alert("Submission failed. Try again.");
+      alert("Submission failed. Please try again.");
     } finally {
       setLoading(false);
     }
   }
 
   return (
-    <div>
-      <h2>Contact Us</h2>
+    <div className="max-w-3xl mx-auto px-6 py-16">
+      <h2 className="text-3xl font-semibold mb-6">Contact Us</h2>
 
-      <form onSubmit={handleSubmit}>
-        <input name="fullName" placeholder="Full Name" onChange={handleChange} value={form.fullName} required />
-        <input name="phone" placeholder="Phone" onChange={handleChange} value={form.phone} required />
-        <input name="email" placeholder="Email" onChange={handleChange} value={form.email} required />
-        <input name="city" placeholder="City" onChange={handleChange} value={form.city} required />
-        <input name="state" placeholder="State" onChange={handleChange} value={form.state} required />
-        <textarea name="message" placeholder="Message" onChange={handleChange} value={form.message} />
-        <button disabled={loading}>{loading ? "Submitting..." : "Submit"}</button>
+      <form
+        onSubmit={handleSubmit}
+        className="space-y-4 bg-white p-8 rounded-xl shadow-md"
+      >
+        <input
+          name="fullName"
+          placeholder="Full Name"
+          value={form.fullName}
+          onChange={handleChange}
+          required
+          className="w-full border p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+
+        <input
+          name="phone"
+          type="tel"
+          placeholder="Phone"
+          value={form.phone}
+          onChange={handleChange}
+          required
+          className="w-full border p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+
+        <input
+          name="email"
+          type="email"
+          placeholder="Email"
+          value={form.email}
+          onChange={handleChange}
+          required
+          className="w-full border p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+
+        <input
+          name="city"
+          placeholder="City"
+          value={form.city}
+          onChange={handleChange}
+          required
+          className="w-full border p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+
+        <input
+          name="state"
+          placeholder="State"
+          value={form.state}
+          onChange={handleChange}
+          required
+          className="w-full border p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+
+        <textarea
+          name="message"
+          placeholder="Message (optional)"
+          value={form.message}
+          onChange={handleChange}
+          className="w-full border p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+
+        <button
+          disabled={loading}
+          className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition"
+        >
+          {loading ? "Submitting..." : "Submit"}
+        </button>
+
+        {success && (
+          <p className="text-green-600 text-sm mt-2">{success}</p>
+        )}
       </form>
-
-      {success && <p>{success}</p>}
     </div>
   );
 }
