@@ -3,159 +3,283 @@
 @tailwind utilities;
 
 @layer components {
-  /* ✅ Navy & Teal Gradient - Primary Brand Colors */
+  /* === BRAND COLORS - No Change === */
   .brand-gradient-text {
     @apply bg-gradient-to-r from-[#0A2342] to-[#1E5F5C] bg-clip-text text-transparent;
-    /* Navy → Teal */
   }
   
   .brand-gradient-bg {
     @apply bg-gradient-to-r from-[#0A2342] to-[#1E5F5C];
-    /* Navy → Teal */
   }
   
-  /* ✅ Gold Accent - CTA Buttons Only */
+  /* === GOLD ACCENT - Mobile + Desktop === */
   .cta-gold {
     @apply bg-gradient-to-r from-[#FFB347] to-[#FFA07A] text-white;
-    /* Gold/Orange gradient - CTA only */
   }
   
   .cta-gold-hover {
-    @apply hover:from-[#FFA07A] hover:to-[#FFB347] hover:shadow-lg hover:shadow-[#FFB347]/20;
-  }
-  
-  /* Cards - Clean White with Navy/Teal accents */
-  .pro-card {
-    @apply bg-white rounded-xl shadow-md border border-gray-100 p-6;
-  }
-  
-  .pro-card-hover {
-    @apply hover:shadow-lg hover:border-[#1E5F5C]/30 transition-all duration-300;
-    /* Teal border on hover */
-  }
-  
-  /* ✅ Primary Button - Navy/Teal Gradient (Default) */
-  .pro-btn-primary {
-    @apply brand-gradient-bg text-white px-6 py-3 rounded-lg font-semibold 
-           hover:shadow-lg hover:scale-105 transition-all duration-300 
-           active:scale-95;
-  }
-  
-  /* ✅ Secondary Button - Navy Border with Teal Hover */
-  .pro-btn-secondary {
-    @apply border-2 border-[#0A2342] text-[#0A2342] px-6 py-3 rounded-lg 
-           font-semibold hover:bg-[#1E5F5C] hover:text-white hover:border-[#1E5F5C] 
+    /* Mobile: tap effect, Desktop: hover effect */
+    @apply active:from-[#FFA07A] active:to-[#FFB347] 
+           active:shadow-lg active:shadow-[#FFB347]/20
+           hover:from-[#FFA07A] hover:to-[#FFB347] 
+           hover:shadow-lg hover:shadow-[#FFB347]/20
            transition-all duration-300;
   }
   
-  /* ✅ CTA Button - Gold Accent (Special Actions) */
+  /* === CARDS - Fully Responsive === */
+  .pro-card {
+    @apply bg-white rounded-xl border border-gray-100 
+           p-4 sm:p-5 md:p-6 /* Mobile se Desktop tak padding */
+           shadow-sm sm:shadow-md /* Mobile: light shadow, Desktop: medium */
+           w-full mx-auto;
+  }
+  
+  .pro-card-hover {
+    /* Mobile: tap, Desktop: hover */
+    @apply active:border-[#1E5F5C]/30 active:shadow-lg
+           hover:border-[#1E5F5C]/30 hover:shadow-lg
+           transition-all duration-300 cursor-pointer;
+  }
+  
+  /* === BUTTONS - Touch-friendly + Desktop === */
+  .pro-btn-primary {
+    @apply brand-gradient-bg text-white 
+           w-full sm:w-auto /* Mobile: full width, Desktop: auto */
+           px-5 sm:px-6 py-3.5 sm:py-3 /* Mobile: taller, Desktop: normal */
+           rounded-lg font-semibold text-base
+           active:shadow-lg active:scale-[0.98] /* Mobile tap feedback */
+           hover:shadow-lg hover:scale-105 /* Desktop hover */
+           focus:outline-none focus:ring-2 focus:ring-[#0A2342] focus:ring-offset-2
+           transition-all duration-200;
+  }
+  
+  .pro-btn-secondary {
+    @apply border-2 border-[#0A2342] text-[#0A2342] 
+           w-full sm:w-auto
+           px-5 sm:px-6 py-3.5 sm:py-3
+           rounded-lg font-semibold text-base
+           active:bg-[#1E5F5C] active:text-white active:border-[#1E5F5C] /* Mobile tap */
+           hover:bg-[#1E5F5C] hover:text-white hover:border-[#1E5F5C] /* Desktop hover */
+           transition-all duration-300;
+  }
+  
   .pro-btn-cta {
-    @apply cta-gold text-white px-6 py-3 rounded-lg font-semibold 
-           cta-gold-hover hover:scale-105 transition-all duration-300 
-           active:scale-95 shadow-md;
+    @apply cta-gold text-white
+           w-full sm:w-auto
+           px-5 sm:px-6 py-3.5 sm:py-3
+           rounded-lg font-semibold text-base
+           cta-gold-hover
+           active:scale-[0.98] hover:scale-105
+           shadow-md active:shadow-lg hover:shadow-lg
+           transition-all duration-200;
   }
   
-  /* Form Inputs - Navy Focus Ring */
+  /* === BUTTON CONTAINER - Mobile Stack, Desktop Row === */
+  .btn-container {
+    @apply flex flex-col sm:flex-row 
+           gap-3 sm:gap-4 
+           w-full sm:w-auto
+           items-stretch sm:items-center;
+  }
+  
+  /* === FORM INPUTS - Touch-friendly === */
   .pro-input {
-    @apply w-full border border-gray-300 rounded-lg px-4 py-3 
+    @apply w-full border border-gray-300 
+           rounded-lg px-4 py-3.5 sm:py-3 /* Mobile: more padding */
+           text-base sm:text-base
            focus:outline-none focus:ring-2 focus:ring-[#0A2342] 
-           focus:border-transparent transition-all;
+           focus:border-transparent
+           transition-all
+           bg-white;
+    /* Minimum touch target size: 44px */
+    min-height: 44px;
   }
   
-  /* Section Padding - Consistent */
+  /* === SECTION PADDING - Responsive === */
   .section-padding {
-    @apply py-16 md:py-20;
+    @apply py-12 sm:py-16 md:py-20; /* Mobile: kam padding, Desktop: zyada */
   }
   
   .container-pro {
-    @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
+    @apply max-w-6xl mx-auto 
+           px-4 sm:px-6 lg:px-8 /* Responsive padding */
+           w-full;
   }
   
-  /* Headings - Navy */
+  /* === HEADINGS - Fluid Typography === */
   .trust-heading {
-    @apply text-3xl md:text-4xl font-bold text-[#0A2342] mb-4;
+    @apply font-bold text-[#0A2342] mb-3 sm:mb-4
+           text-2xl sm:text-3xl md:text-4xl /* Mobile se Desktop */
+           leading-tight sm:leading-tight md:leading-tight;
   }
   
   .trust-subheading {
-    @apply text-lg md:text-xl text-[#4A5568] mb-8;
-    /* Soft gray - easy reading */
+    @apply text-[#4A5568] mb-6 sm:mb-8
+           text-base sm:text-lg md:text-xl /* Responsive text */
+           leading-relaxed;
   }
   
-  /* Achievement Badge - Teal */
+  /* === ACHIEVEMENT BADGE === */
   .achievement-badge {
-    @apply inline-flex items-center justify-center px-4 py-2 
-           rounded-full bg-[#1E5F5C]/10 text-[#1E5F5C] text-sm font-medium;
+    @apply inline-flex items-center justify-center 
+           px-3 sm:px-4 py-1.5 sm:py-2
+           rounded-full bg-[#1E5F5C]/10 text-[#1E5F5C] 
+           text-xs sm:text-sm font-medium;
   }
   
-  /* Lists - Navy bullets */
+  /* === LISTS - Mobile Optimized === */
   .pro-list {
-    @apply space-y-3;
+    @apply space-y-3 sm:space-y-3;
   }
   
   .pro-list-item {
-    @apply flex items-start space-x-3;
+    @apply flex items-start space-x-2 sm:space-x-3;
   }
   
   .pro-list-bullet {
-    @apply flex-shrink-0 w-6 h-6 rounded-full bg-[#0A2342]/10 
-           flex items-center justify-center text-[#0A2342] text-sm mt-0.5;
+    @apply flex-shrink-0 
+           w-5 h-5 sm:w-6 sm:h-6
+           rounded-full bg-[#0A2342]/10 
+           flex items-center justify-center text-[#0A2342] 
+           text-xs sm:text-sm
+           mt-0.5;
   }
   
-  /* Success Message - Teal theme */
-  .success-message {
-    @apply bg-[#1E5F5C]/10 border border-[#1E5F5C]/30 text-[#1E5F5C] 
-           px-4 py-3 rounded-lg text-sm;
-  }
-  
-  /* Loading Dots - Navy */
-  .loading-dots div {
-    @apply w-2 h-2 bg-[#0A2342] rounded-full animate-bounce;
-  }
-  
-  /* Trust Indicator - Gold accent */
+  /* === TRUST INDICATOR - Mobile First === */
   .trust-indicator {
-    @apply relative overflow-hidden;
+    @apply relative overflow-hidden
+           p-3 sm:p-4 /* Touch target */
+           cursor-pointer;
   }
   
   .trust-indicator::before {
     content: '🔒 Trusted & Secure';
     @apply absolute -top-8 left-1/2 transform -translate-x-1/2 
-           bg-[#FFB347] text-white text-xs px-3 py-1 rounded-full 
-           whitespace-nowrap opacity-0 transition-opacity duration-300;
-    /* Gold background */
+           bg-[#FFB347] text-white 
+           text-[10px] sm:text-xs 
+           px-2 sm:px-3 py-1 sm:py-1.5
+           rounded-full whitespace-nowrap 
+           opacity-0 transition-opacity duration-300
+           pointer-events-none;
+    z-index: 50;
+  }
+  
+  /* Mobile: tap se dikhe, Desktop: hover se */
+  .trust-indicator:active::before {
+    @apply opacity-100 top-0 sm:top-2;
   }
   
   .trust-indicator:hover::before {
     @apply opacity-100 top-2;
   }
   
-  /* ✅ Footer Specific - Clean Dark Navy */
+  /* === GRID - Responsive Cards Grid === */
+  .trust-grid {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 
+           gap-4 sm:gap-5 md:gap-6;
+  }
+  
+  /* === FOOTER - Mobile Stack === */
   .footer-bg {
     @apply bg-[#0A2342];
-    /* Solid Navy - no gradient */
   }
   
   .footer-text {
-    @apply text-gray-300;
+    @apply text-gray-300 text-sm sm:text-base;
   }
   
   .footer-link {
-    @apply hover:text-[#FFB347] transition-colors;
-    /* Gold on hover */
+    @apply hover:text-[#FFB347] active:text-[#FFB347] /* Mobile + Desktop */
+           transition-colors py-2 block /* Touch target */
+           text-sm sm:text-base;
   }
   
-  /* ✅ Social Icons - Navy with Gold hover */
+  /* === SOCIAL ICONS - Touch-friendly === */
   .social-icon {
-    @apply w-8 h-8 bg-[#0A2342]/80 rounded-full flex items-center justify-center 
-           hover:bg-[#FFB347] transition-colors duration-300;
+    @apply w-10 h-10 sm:w-8 sm:h-8 /* Mobile: bada touch target */
+           bg-[#0A2342]/80 rounded-full 
+           flex items-center justify-center 
+           active:bg-[#FFB347] hover:bg-[#FFB347] /* Mobile + Desktop */
+           transition-colors duration-300
+           text-white sm:text-base;
   }
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-}
-
-.animate-float {
-  animation: float 3s ease-in-out infinite;
+  
+  /* === NAVIGATION - Mobile Menu Ready === */
+  .nav-link {
+    @apply text-[#0A2342] hover:text-[#1E5F5C] active:text-[#1E5F5C]
+           font-medium px-3 py-2 sm:px-4 sm:py-2
+           text-sm sm:text-base
+           rounded-lg transition-colors
+           block w-full sm:w-auto;
+  }
+  
+  .nav-container {
+    @apply flex flex-col sm:flex-row 
+           items-start sm:items-center 
+           gap-2 sm:gap-4;
+  }
+  
+  /* === SUCCESS MESSAGE === */
+  .success-message {
+    @apply bg-[#1E5F5C]/10 border border-[#1E5F5C]/30 text-[#1E5F5C] 
+           px-3 sm:px-4 py-2.5 sm:py-3 
+           rounded-lg text-xs sm:text-sm;
+  }
+  
+  /* === LOADING DOTS === */
+  .loading-dots {
+    @apply flex space-x-1 sm:space-x-2;
+  }
+  
+  .loading-dots div {
+    @apply w-1.5 h-1.5 sm:w-2 sm:h-2 
+           bg-[#0A2342] rounded-full animate-bounce;
+  }
+  
+  /* === ANIMATIONS - Performance Optimized === */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); } /* Mobile: kam movement */
+  }
+  
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  /* === UTILITY CLASSES === */
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  .mobile-stack {
+    @apply flex flex-col sm:flex-row;
+  }
+  
+  .responsive-text {
+    @apply text-sm sm:text-base md:text-lg;
+  }
+  
+  /* === MOBILE OPTIMIZATIONS === */
+  @media (max-width: 640px) {
+    /* Prevent text zoom on input focus */
+    input, select, textarea {
+      font-size: 16px !important;
+    }
+    
+    /* Better touch scrolling */
+    .smooth-scroll {
+      -webkit-overflow-scrolling: touch;
+    }
+    
+    /* Remove hover effects on mobile */
+    .hover\:shadow-lg:hover {
+      box-shadow: none;
+    }
+    
+    /* Better tap targets */
+    button, a, .clickable {
+      min-height: 44px;
+    }
+  }
 }

@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 
-// ✅ ENV variable - ek baar define karo
+
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 function Admin() {
@@ -12,7 +12,7 @@ function Admin() {
   const [inquiries, setInquiries] = useState([]);
   const [view, setView] = useState("login");
 
-  // ✅ Check if already logged in
+  //  Check if already logged in
   useEffect(() => {
     const token = localStorage.getItem("adminToken");
     if (token) {
@@ -23,7 +23,7 @@ function Admin() {
     }
   }, []);
 
-  // ✅ LOGIN - ENV based URL
+  //  LOGIN - ENV based URL
   async function handleLogin(e) {
     e.preventDefault();
     setLoading(true);
@@ -53,7 +53,7 @@ function Admin() {
     }
   }
 
-  // ✅ LOGOUT
+  //  LOGOUT
   function handleLogout() {
     localStorage.removeItem("adminToken");
     delete axios.defaults.headers.common["Authorization"];
@@ -63,7 +63,7 @@ function Admin() {
     setInquiries([]);
   }
 
-  // ✅ FETCH INQUIRIES - ENV based URL
+  //  FETCH INQUIRIES - ENV based URL
   async function fetchInquiries() {
     try {
       const response = await axios.get(
@@ -78,7 +78,7 @@ function Admin() {
     }
   }
 
-  // ✅ EXPORT TO EXCEL - ENV based URL
+  //  EXPORT TO EXCEL - ENV based URL
   async function downloadExcel() {
     try {
       setLoading(true);
@@ -113,7 +113,7 @@ function Admin() {
     }
   }
 
-  // ✅ LOGIN PAGE
+  //  LOGIN PAGE
   if (!isAuthenticated) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">

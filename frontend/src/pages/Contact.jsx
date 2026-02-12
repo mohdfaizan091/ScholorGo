@@ -25,7 +25,7 @@ function Contact() {
 
     try {
       await submitInquiry(form);
-      // ✅ Updated confirmation message - exact wording
+      //  Updated confirmation message - exact wording
       setSuccess("Thank you for reaching out to ScholarGo. We will contact you shortly.");
       setForm({
         fullName: "",
@@ -144,7 +144,7 @@ function Contact() {
                 />
               </div>
 
-              {/* ✅ Button Text: Submit Inquiry */}
+              {/*  Button Text: Submit Inquiry */}
               <button 
                 type="submit"
                 disabled={loading}
@@ -161,10 +161,10 @@ function Contact() {
                 )}
               </button>
 
-              {/* ✅ Updated confirmation message - exact wording */}
+              {/*  Updated confirmation message - exact wording */}
               {success && (
                 <div className="success-message">
-                  ✅ {success}
+                   {success}
                 </div>
               )}
 

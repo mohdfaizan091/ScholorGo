@@ -4,18 +4,18 @@ function Home() {
   return (
     <div className="section-padding bg-gradient-to-br from-blue-50 to-gray-50">
       <div className="container-pro text-center">
-        {/* ✅ Updated Main Heading */}
+        {/*  Updated Main Heading */}
         <h1 className="trust-heading brand-gradient-text">
           Helping Students Find the Scholarships They Truly Deserve
         </h1>
 
-        {/* ✅ Updated Sub-Heading */}
+        {/*  Updated Sub-Heading */}
         <p className="trust-subheading max-w-2xl mx-auto">
           ScholarGo helps students discover relevant scholarship opportunities 
           and provides guidance so they don't miss out due to lack of information.
         </p>
 
-        {/* ✅ Updated CTA Buttons - Exact as specified */}
+        {/*  Updated CTA Buttons - Exact as specified */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
           <Link to="/contact">
             <button className="pro-btn-primary">
