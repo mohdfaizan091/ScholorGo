@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-
+import { Link } from "react-router-dom";  // ✅ 1. IMPORT ADD KARO
+import logo from "../assets/scholargo-logo.png";  // ✅ 2. LOGO IMPORT KARO
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
@@ -12,7 +13,7 @@ function Admin() {
   const [inquiries, setInquiries] = useState([]);
   const [view, setView] = useState("login");
 
-  //  Check if already logged in
+  // ✅ Check if already logged in
   useEffect(() => {
     const token = localStorage.getItem("adminToken");
     if (token) {
@@ -23,11 +24,13 @@ function Admin() {
     }
   }, []);
 
-  //  LOGIN - ENV based URL
+  // ✅ LOGIN
   async function handleLogin(e) {
     e.preventDefault();
     setLoading(true);
     setError("");
+
+    console.log("🔐 Logging in to:", `${API_BASE_URL}/api/secure-admin/login`);
 
     try {
       const response = await axios.post(
@@ -47,13 +50,21 @@ function Admin() {
       
     } catch (error) {
       console.error("Login error:", error);
-      setError(error.response?.data?.message || "Login failed");
+      
+      // ✅ Better error messages
+      if (error.code === 'ERR_NETWORK') {
+        setError(`Cannot connect to server. Make sure backend is running at ${API_BASE_URL}`);
+      } else if (error.response?.status === 401) {
+        setError("Invalid password. Please try again.");
+      } else {
+        setError(error.response?.data?.message || "Login failed");
+      }
     } finally {
       setLoading(false);
     }
   }
 
-  //  LOGOUT
+  // ✅ LOGOUT
   function handleLogout() {
     localStorage.removeItem("adminToken");
     delete axios.defaults.headers.common["Authorization"];
@@ -63,7 +74,7 @@ function Admin() {
     setInquiries([]);
   }
 
-  //  FETCH INQUIRIES - ENV based URL
+  // ✅ FETCH INQUIRIES
   async function fetchInquiries() {
     try {
       const response = await axios.get(
@@ -78,19 +89,16 @@ function Admin() {
     }
   }
 
-  //  EXPORT TO EXCEL - ENV based URL
+  // ✅ EXPORT TO EXCEL
   async function downloadExcel() {
     try {
       setLoading(true);
       
       const response = await axios.get(
         `${API_BASE_URL}/api/secure-admin/inquiries/export`,
-        {
-          responseType: "blob"
-        }
+        { responseType: "blob" }
       );
 
-      // Create download link
       const url = window.URL.createObjectURL(new Blob([response.data]));
       const link = document.createElement("a");
       link.href = url;
@@ -113,19 +121,31 @@ function Admin() {
     }
   }
 
-  //  LOGIN PAGE
+  // ✅ LOGIN PAGE - WITH LOGO FIXED
   if (!isAuthenticated) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
         <div className="max-w-md w-full bg-white rounded-xl shadow-lg p-8">
           <div className="text-center mb-8">
+            
+            {/* ✅ FIXED: SG hataya, Logo lagaya */}
             <div className="flex justify-center mb-4">
-              <div className="w-16 h-16 bg-gradient-to-r from-[#0A2342] to-[#1E5F5C] rounded-xl flex items-center justify-center">
-                <span className="text-white font-bold text-2xl">SG</span>
-              </div>
+              <Link to="/" className="flex items-center justify-center">
+                <img 
+                  src={logo} 
+                  alt="ScholarGo Logo" 
+                  className="h-16 w-auto"
+                />
+              </Link>
             </div>
+            
             <h2 className="text-2xl font-bold text-[#0A2342]">Admin Login</h2>
             <p className="text-gray-600 text-sm mt-2">ScholarGo • Scholarship Ka Saathi</p>
+            
+            {/* ✅ Debug - Remove in production */}
+            <p className="text-xs text-gray-400 mt-2">
+              API: {API_BASE_URL}
+            </p>
           </div>
 
           {error && (
@@ -174,18 +194,23 @@ function Admin() {
     );
   }
 
-  // ✅ DASHBOARD PAGE (Rest of the code same hai)
+  // ✅ DASHBOARD PAGE - WITH LOGO FIXED
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         
-        {/* Header */}
+        {/* ✅ Header - Fixed Logo */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
           <div>
             <div className="flex items-center space-x-3 mb-2">
-              <div className="w-10 h-10 bg-gradient-to-r from-[#0A2342] to-[#1E5F5C] rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">SG</span>
-              </div>
+              {/* ✅ FIXED: SG hataya, Logo lagaya */}
+              <Link to="/admin" className="flex items-center">
+                <img 
+                  src={logo} 
+                  alt="ScholarGo Logo" 
+                  className="h-10 w-auto"
+                />
+              </Link>
               <h1 className="text-2xl md:text-3xl font-bold text-[#0A2342]">
                 Admin Dashboard
               </h1>
@@ -206,8 +231,9 @@ function Admin() {
           </button>
         </div>
 
-        {/* Stats Cards */}
+        {/* ✅ Stats Cards - Same */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+          {/* ... stats cards same ... */}
           <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
             <div className="text-sm text-gray-500 mb-1">Total Inquiries</div>
             <div className="text-3xl font-bold text-[#0A2342]">{inquiries.length}</div>
@@ -248,7 +274,7 @@ function Admin() {
           </div>
         </div>
 
-        {/* Action Buttons */}
+        {/* ✅ Action Buttons - Same */}
         <div className="flex flex-wrap gap-4 mb-8">
           <button
             onClick={downloadExcel}
@@ -281,7 +307,7 @@ function Admin() {
           </button>
         </div>
 
-        {/* Inquiries Table */}
+        {/* ✅ Inquiries Table - Same */}
         {view === "inquiries" && (
           <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
             <div className="px-6 py-4 border-b border-gray-100 bg-gray-50">
