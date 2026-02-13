@@ -33,7 +33,7 @@ function Home() {
         <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6">
           <div className="pro-card text-center">
             <div className="text-3xl font-bold brand-gradient-text">500+</div>
-            <p className="text-gray-600 mt-2">Students Helped</p>
+            <p className="text-gray-600 mt-2">Students Registered</p>
           </div>
           <div className="pro-card text-center">
             <div className="text-3xl font-bold brand-gradient-text">95%</div>
