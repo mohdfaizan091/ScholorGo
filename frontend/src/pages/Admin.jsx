@@ -141,11 +141,6 @@ function Admin() {
             
             <h2 className="text-2xl font-bold text-[#0A2342]">Admin Login</h2>
             <p className="text-gray-600 text-sm mt-2">ScholarGo • Scholarship Ka Saathi</p>
-            
-            {/* ✅ Debug - Remove in production */}
-            <p className="text-xs text-gray-400 mt-2">
-              API: {API_BASE_URL}
-            </p>
           </div>
 
           {error && (
