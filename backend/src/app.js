@@ -6,7 +6,9 @@ const app = express();
 app.use(cors({
   origin: [
     "http://localhost:5173",
-    "https://scholor-go.vercel.app"
+    "https://scholor-go.vercel.app",
+    "https://scholorgo.com",
+    "https://www.scholorgo.com"
   ]
 }));
 
