@@ -4,19 +4,19 @@ function Achievements() {
   {
     name: "Mahek Khan",
     quote: "ScholarGo helped me find and apply for this scholarship. The money is supporting my entire first year of college.",
-    image: "/src/assets/images/testimonials/student1.jpg",
+    image: "/images/testimonials/student1.jpg",
     year: "2026"
   },
   {
     name: "Akshay",
     quote: "I didn't know I was eligible for this scholarship. ScholarGo's guidance helped me to secure.",
-    image: "/src/assets/images/testimonials/student2.jpg",
+    image: "/images/testimonials/student2.jpg",
     year: "2026"
   },
   {
     name: "Arman Shaikh",
     quote: "This scholarship covers my entire tuition fee. Grateful to ScholarGo for making it happen!",
-    image: "/src/assets/images/testimonials/student3.jpg",
+    image: "/images/testimonials/student3.jpg",
     year: "2026"
   }
 ];
