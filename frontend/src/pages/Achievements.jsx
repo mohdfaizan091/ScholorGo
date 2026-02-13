@@ -38,7 +38,7 @@ function Achievements() {
           <div className="space-y-4 mt-4">
             <div className="flex items-start space-x-3">
               <span className="text-green-600 text-xl">✓</span>
-              <p className="text-gray-700 text-lg">3 students awarded prestigious international scholarships</p>
+              <p className="text-gray-700 text-lg">3 students awarded prestigious scholarships</p>
             </div>
             <div className="flex items-start space-x-3">
               <span className="text-green-600 text-xl">✓</span>
