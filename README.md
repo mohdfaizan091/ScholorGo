@@ -47,7 +47,7 @@ The objective was to transform a PPT-based concept into a live, investor-facing 
 
 *Authentication Flow:*
 
-- User login
+- Admin login
 - JWT token issued
 - Token stored for session persistence
 - Protected routes validated via middleware
@@ -84,9 +84,9 @@ npm install
 
 *Create .env file inside backend:*
 
-PORT=3000
-MONGO_URI=your_mongodb_connection
-JWT_SECRET=JWY_KEY
+- PORT=3000
+- MONGO_URI=your_mongodb_connection
+- JWT_SECRET=JWY_KEY
 
 **Run backend:**
 - npm start
@@ -102,7 +102,7 @@ JWT_SECRET=JWY_KEY
 - Analytics dashboard
 - Refresh token rotation system
 
-***Author***
+***Author*** <br>
 *Mohd Faizan*
-*Full-Stack Developer*
+(*Full-Stack Developer*)
 - Built and deployed as a contract engineer for ScholorGo under startup pitch timeline.
