@@ -103,6 +103,6 @@ npm install
 - Refresh token rotation system
 
 ***Author*** <br>
-*Mohd Faizan*
+<<b><ul>*Mohd Faizan*<ul><b>
 (*Full-Stack Developer*)
 - Built and deployed as a contract engineer for ScholorGo under startup pitch timeline.
