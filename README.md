@@ -19,7 +19,10 @@ The objective was to transform a PPT-based concept into a live, investor-facing 
 - Production deployment stability.
 
 **Tech Stack**
-**Frontend**
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat&logo=nodedotjs&logoColor=white)
+![Express](https://img.shields.io/badge/Express-000000?style=flat&logo=express&logoColor=white)
+![React](https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=black)
+![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=flat&logo=mongodb&logoColor=white)
 - React.js
 - Tailwind CSS
 - SPA Architecture
