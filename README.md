@@ -73,7 +73,7 @@ The objective was to transform a PPT-based concept into a live, investor-facing 
 
 **Installation (For Development)**
 - *Clone the repository:*
--     - git clone https://github.com/mohdfaizan091/ScholoGo
+-     - git clone https://github.com/mohdfaizan091/ScholorGo
 
 **Install dependencies:**
 cd frontend
